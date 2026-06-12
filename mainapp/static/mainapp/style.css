@@ -81,12 +81,16 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
-    text-align: center;
     padding: 6px 12px;
-    width: auto;
+    width: min(92vw, 980px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 }
 .site-header .title { margin: 0; }
-.card { margin-top: 72px; }
+.site-header-center { flex: 1; text-align: center; }
+.card { margin-top: 84px; }
 
 .card-top { padding-bottom: 8px; display:flex; justify-content:space-between; align-items:center; }
 
@@ -121,12 +125,12 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 5ch; /* approx 5 characters wide */
-    height: 2.2em; /* about 2 lines tall */
+    width: 7ch; /* uniform approx width */
+    height: 2.6em; /* slightly taller */
     background: #87CEEB; /* sky blue */
     color: #002b6e; /* deep blue text */
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 700;
     box-shadow: 0 6px 0 rgba(0,0,0,0.25);
     border: 1px solid rgba(255,255,255,0.04);
@@ -138,11 +142,11 @@ body {
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    width: 5ch;
-    height: 2.2em;
+    width: 7ch;
+    height: 2.6em;
     background: #87CEEB;
     color: #002b6e;
-    border-radius:6px;
+    border-radius:10px;
     border: 1px solid rgba(255,255,255,0.04);
     text-decoration:none;
     font-weight:700;
