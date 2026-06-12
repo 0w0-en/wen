@@ -76,15 +76,17 @@ body {
 
 /* Site header at very top */
 .site-header {
-    position: relative;
-    width: 100%;
-    max-width: 980px;
-    margin: 18px auto 6px auto;
+    position: fixed;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
     text-align: center;
     padding: 6px 12px;
+    width: auto;
 }
 .site-header .title { margin: 0; }
-.card { margin-top: 8px; }
+.card { margin-top: 72px; }
 
 .card-top { padding-bottom: 8px; display:flex; justify-content:space-between; align-items:center; }
 
