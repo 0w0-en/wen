@@ -6,52 +6,29 @@
 <link rel="stylesheet" href="{% static 'mainapp/style.css' %}">
 
 <div class="card">
-    <div class="pdf-header-bar">
-        <h1 class="title">實境解謎裝置</h1>
-        <div class="subtitle meta">B11313121 趙翌雯 • 最終提案</div>
-    </div>
+    <div class="header">
+            <h1 class="title">實境解謎裝置</h1>
+            <div class="subtitle meta">B11313121 趙翌雯 • 最終提案</div>
+        </div>
 
     <main class="content-grid">
         <article>
             <section class="detail-item">
                 <h2>提案摘要</h2>
-                {% if pdf_summary %}
-                <p>{{ pdf_summary }}</p>
-                {% else %}
-                <p>此頁面會顯示 PDF 內的提案重點：目標、系統架構、感測器說明、資料流程與結論。</p>
-                {% endif %}
+                <p>此頁面會顯示提案重點：目標、系統架構、感測器說明、資料流程與結論。</p>
             </section>
 
             <section class="detail-item">
                 <h2>文件大綱</h2>
-                {% if pdf_headings %}
-                <ol>
-                    {% for h in pdf_headings %}
-                    <li>{{ h }}</li>
-                    {% endfor %}
-                </ol>
-                {% else %}
                 <p class="meta">尚無可顯示的大綱</p>
-                {% endif %}
             </section>
 
             <section class="detail-item">
                 <h2>閱讀建議</h2>
-                <p class="meta">若要完整呈現 PDF 原始排版，建議使用右側檢視或下載原始 PDF 檔案。</p>
+                <p class="meta">若要完整呈現原始排版，建議下載原始文件或另行檢視。</p>
             </section>
         </article>
 
-        <aside>
-            <div class="detail-item">
-                <h2>PDF 檢視</h2>
-                <p class="meta">若未顯示請確認 PDF 已放在 `mainapp/static/mainapp/`。</p>
-                {% if pdf_exists %}
-                <iframe class="pdf-frame" src="{% static 'mainapp/物聯網最終提案.pdf' %}" title="PDF preview"></iframe>
-                {% else %}
-                <div class="meta">PDF 檔案目前不可用。</div>
-                <p class="meta">你可以 <a href="https://raw.githubusercontent.com/0w0-en/wen/main/mainapp/物聯網最終提案.pdf" target="_blank" rel="noopener">下載原始 PDF</a> 或稍後再試。</p>
-                {% endif %}
-            </div>
-        </aside>
+        <!-- PDF viewer removed -->
     </main>
 </div>
