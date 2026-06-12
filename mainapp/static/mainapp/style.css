@@ -44,6 +44,7 @@ body {
     justify-content: center;
     background: #000000; /* keep background black */
     font-family: 'Cubic11', 'JF Open 粉圓', 'Ma Shan Zheng', 'Dancing Script', 'Inter', 'Noto Sans TC', Arial, sans-serif;
+    font-weight: 700;
     color: var(--text);
 }
 
@@ -128,7 +129,7 @@ body {
 .modules-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 20px;
 }
 
 .box {
@@ -143,19 +144,41 @@ body {
     background: var(--module-bg-light);
     border: 1px solid var(--module-border);
     color: var(--text-pink);
+    position: relative;
+    overflow: hidden;
+    padding: 22px; /* larger padding */
+    min-height: 140px; /* taller blocks */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical center */
 }
 
 .link-box { grid-column: 1 / -1; }
 
-.module-box h4 { margin: 0 0 6px; font-size: 1rem; color: var(--text-pink); }
+.module-box h4 { margin: 0 0 10px; font-size: 1.25rem; color: var(--text-pink); font-weight: 800; }
 .module-value {
-    font-weight: 700;
-    font-size: 1.05rem;
+    font-weight: 800;
+    font-size: 1.25rem;
     color: var(--text-pink);
     background: var(--module-bg-light);
-    padding: 6px 10px;
+    padding: 8px 12px;
     border-radius: 6px;
     display: inline-block;
+}
+
+/* Decorative white overlay at the bottom of module boxes (30% opacity) */
+.modules-container .module-box:last-child::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28px;
+    background: rgba(255,255,255,0.30);
+    pointer-events: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 /* Top actions: left and right buttons */
