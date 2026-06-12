@@ -17,8 +17,7 @@
         <section class="link-box box">
             <h3>Links</h3>
             <div id="links-area">
-                <!-- Clickable links will be added here later -->
-                <p class="meta">連結會在此處顯示（稍後提供）</p>
+                <a class="link-button" href="https://carpool-diffusion-letdown.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">組別網站</a>
             </div>
         </section>
 
@@ -34,10 +33,14 @@
     </main>
 
     <script>
-    // Polling function to fetch module statuses
+    // PHP endpoint (optional) injected from Django settings; if empty, use internal API
+    const PHP_ENDPOINT = '{{ php_endpoint }}';
+
+    // Polling function to fetch module statuses (from PHP endpoint if provided)
     async function fetchModuleStatus(){
         try{
-            const res = await fetch('{% url "module_status" %}');
+            const url = PHP_ENDPOINT && PHP_ENDPOINT.trim() !== '' ? PHP_ENDPOINT : '{% url "module_status" %}';
+            const res = await fetch(url, {cache: 'no-store'});
             if(!res.ok) return;
             const data = await res.json();
             if(!Array.isArray(data.modules)) return;
@@ -47,6 +50,7 @@
             });
         }catch(e){ console.error('module poll error', e); }
     }
+
     // start polling every 2 seconds
     setInterval(fetchModuleStatus, 2000);
     fetchModuleStatus();

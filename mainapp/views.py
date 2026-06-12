@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.conf import settings
 import time
 
 
 def home(request):
     # render page and provide module indexes for template loop
     modules = list(range(1, 10))  # 1..9
-    return render(request, 'mainapp/index.html', {'modules': modules})
+    php_endpoint = getattr(settings, 'PHP_MODULE_STATUS_URL', '')
+    return render(request, 'mainapp/index.html', {'modules': modules, 'php_endpoint': php_endpoint})
 
 
 def module_status(request):

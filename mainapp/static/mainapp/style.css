@@ -1,9 +1,11 @@
 /* mainapp/static/mainapp/style.css */
 :root {
-    --accent: #8a67c4;
-    --muted: #6a587a;
-    --bg: #080808;
-    --text: #f0eaf6;
+    --bg: #000000; /* page background: pure black */
+    --text-purple: #9b59b6;
+    --text-pink: #ff66b2;
+    --text-blue: #67aef4;
+    --box-border: #ffd166; /* yellow for box borders */
+    --muted: #bfa6d9;
 }
 
 body {
@@ -19,8 +21,8 @@ body {
 
 .card {
     width: min(92vw, 980px);
-    background: #080808;
-    border: 1px solid rgba(255,102,178,0.08);
+    background: #070707;
+    border: 1px solid rgba(255,209,102,0.06);
     border-radius: 8px;
     box-shadow: 0 18px 40px rgba(0,0,0,0.6);
     padding: 36px 44px;
@@ -40,12 +42,12 @@ body {
     letter-spacing: 0.02em;
     font-weight: 700;
     font-family: 'Noto Serif TC', serif;
-    color: var(--accent);
+    color: var(--text-purple);
 }
 
 .subtitle {
     margin: 4px 0 0;
-    color: var(--muted);
+    color: var(--text-pink);
     font-size: 0.95rem;
 }
 
@@ -78,17 +80,30 @@ body {
     background: #0b0b0b;
     border-radius: 6px;
     padding: 12px;
-    border: 1px solid rgba(255,255,255,0.03);
+    border: 2px solid var(--box-border);
 }
 
 .link-box { grid-column: 1 / -1; }
 
-.module-box h4 { margin: 0 0 6px; font-size: 1rem; }
-.module-value { font-weight: 700; font-size: 1.05rem; color: var(--accent); }
+.module-box h4 { margin: 0 0 6px; font-size: 1rem; color: var(--text-pink); }
+.module-value { font-weight: 700; font-size: 1.05rem; color: var(--text-blue); }
+
+/* Link button styling */
+.link-button {
+    display: inline-block;
+    padding: 10px 14px;
+    background: linear-gradient(90deg, var(--text-purple), var(--text-pink));
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    border: 2px solid var(--box-border);
+}
+.link-button:hover { filter: brightness(0.95); }
 
 .detail-item {
     background: #0b0b0b;
-    border-left: 6px solid var(--accent);
+    border-left: 6px solid var(--box-border);
     border-radius: 4px;
     padding: 18px 18px 18px 20px;
     margin-bottom: 14px;
@@ -97,13 +112,13 @@ body {
 .detail-item h2 {
     margin: 0 0 8px;
     font-size: 1.1rem;
-    color: var(--accent);
+    color: var(--text-blue);
     font-family: 'Noto Serif TC', serif;
 }
 
 .detail-item p {
     margin: 0;
-    color: var(--text);
+    color: var(--muted);
     line-height: 1.85;
     font-size: 15px;
 }
@@ -113,7 +128,7 @@ body {
     content: '❤';
     position: absolute;
     font-size: 20px;
-    color: rgba(138,103,196,0.12);
+    color: rgba(255,209,102,0.12);
 }
 .card::before { left: -10px; top: -10px; }
 .card::after { right: -10px; bottom: -10px; transform: rotate(180deg); }
