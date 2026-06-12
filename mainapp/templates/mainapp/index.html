@@ -9,16 +9,13 @@
     <header class="center-header">
         <h1 class="title">實境解謎裝置</h1>
         <div class="header-meta">Group 6 &nbsp;•&nbsp; 趙翌雯 &nbsp;•&nbsp; B11313121</div>
+        <div class="top-actions">
+            <a class="link-button" href="https://carpool-diffusion-letdown.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">組別網站</a>
+            <a class="all-modules-button" href="{% url 'full_modules' %}">模組</a>
+        </div>
     </header>
 
     <main class="modules-grid">
-        <section class="link-box box">
-            <div class="links-row">
-                <a class="link-button" href="https://carpool-diffusion-letdown.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">組別網站</a>
-                <a class="all-modules-button" href="{% url 'full_modules' %}">All Modules</a>
-            </div>
-        </section>
-
         <div class="modules-container">
             <!-- Show only 3 modules (prev/current/next) by default -->
             {% for i in modules|slice:":3" %}
