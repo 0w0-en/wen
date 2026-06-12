@@ -1,75 +1,46 @@
-<style>
-    body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(180deg, #f7f1ff 0%, #ede7f6 100%);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #3e2064;
-    }
+{% load static %}
 
-    .card {
-        width: min(95vw, 760px);
-        background: #ffffff;
-        border: 1px solid #d9c7f5;
-        border-radius: 24px;
-        box-shadow: 0 18px 55px rgba(86, 65, 132, 0.12);
-        padding: 32px;
-        text-align: center;
-    }
-
-    .card__title {
-        margin: 0;
-        font-size: 2.6rem;
-        letter-spacing: 0.02em;
-    }
-
-    .card__subtitle {
-        margin: 12px 0 24px;
-        font-size: 1.1rem;
-        color: #7e57c2;
-    }
-
-    .card__details {
-        display: grid;
-        gap: 16px;
-        text-align: left;
-    }
-
-    .detail-item {
-        background: #f5efff;
-        border: 1px solid #e3d7ff;
-        border-radius: 16px;
-        padding: 20px;
-    }
-
-    .detail-item h2 {
-        margin: 0 0 8px;
-        font-size: 1.1rem;
-        color: #4b2d68;
-    }
-
-    .detail-item p {
-        margin: 0;
-        color: #5d3a8f;
-        line-height: 1.6;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'mainapp/style.css' %}">
 
 <div class="card">
-    <h1 class="card__title">實境解謎裝置</h1>
-    <p class="card__subtitle">B11313121 趙翌雯</p>
-
-    <div class="card__details">
-        <div class="detail-item">
-            <h2>資料顯示區</h2>
-            <p>這裡會放我們存取到的資料，例如目前狀態、時間、裝置數值等。</p>
+    <div class="header">
+        <div>
+            <h1 class="title">實境解謎裝置</h1>
+            <div class="subtitle">B11313121 趙翌雯</div>
         </div>
-        <div class="detail-item">
-            <h2>後續資料格式</h2>
-            <p>可以改成列表、表格或卡片，每次更新時直接替換這個區塊內容。</p>
+    </div>
+
+    <div class="content-grid">
+        <div>
+            <div class="detail-item">
+                <h2>提案摘要</h2>
+                {% if pdf_summary %}
+                <p>{{ pdf_summary }}</p>
+                {% else %}
+                <p>此頁面會顯示 PDF 內的提案重點：目標、系統架構、感測器說明、資料流程與結論。</p>
+                {% endif %}
+            </div>
+
+            <div class="detail-item" style="margin-top:12px;">
+                <h2>PDF 標題摘要</h2>
+                {% if pdf_headings %}
+                <ul>
+                    {% for h in pdf_headings %}
+                    <li>{{ h }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>預留位置顯示從 PDF 或後端解析後的重點內容（標題、段落、表格摘要等）。</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div>
+            <div class="detail-item">
+                <h2>PDF 檢視</h2>
+                <p>如果你已將 PDF 放在 `mainapp/static/mainapp/物聯網最終提案.pdf`，它會顯示在下方。</p>
+                <iframe class="pdf-frame" src="{% static 'mainapp/物聯網最終提案.pdf' %}" title="PDF preview"></iframe>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,6 @@
+Please copy your PDF file (e.g., 物聯網最終提案.pdf) here:
+
+1) Place your PDF at: mainapp/static/mainapp/物聯網最終提案.pdf
+2) After copying, reload the page at the site root to view the embedded PDF.
+
+(If you prefer another filename, update the iframe src in mainapp/templates/mainapp/index.html accordingly.)
