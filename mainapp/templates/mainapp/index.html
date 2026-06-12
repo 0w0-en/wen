@@ -45,7 +45,12 @@
             <div class="detail-item">
                 <h2>PDF 檢視</h2>
                 <p class="meta">若未顯示請確認 PDF 已放在 `mainapp/static/mainapp/`。</p>
+                {% if pdf_exists %}
                 <iframe class="pdf-frame" src="{% static 'mainapp/物聯網最終提案.pdf' %}" title="PDF preview"></iframe>
+                {% else %}
+                <div class="meta">PDF 檔案目前不可用。</div>
+                <p class="meta">你可以 <a href="https://raw.githubusercontent.com/0w0-en/wen/main/mainapp/物聯網最終提案.pdf" target="_blank" rel="noopener">下載原始 PDF</a> 或稍後再試。</p>
+                {% endif %}
             </div>
         </aside>
     </main>
