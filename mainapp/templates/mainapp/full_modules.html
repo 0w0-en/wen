@@ -1,8 +1,6 @@
 {% load static %}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Using local Cubic11 font; external Google Fonts removed -->
 <link rel="stylesheet" href="{% static 'mainapp/style.css' %}">
 
 <!-- Site header moved to top -->
@@ -22,7 +20,7 @@
 
     <main class="modules-grid full">
         <div class="modules-container full-grid">
-            {% for i in modules %}
+            {% for i in modules|slice:":-1" %}
             <div class="module-box box" data-module="{{ i }}">
                 <h4>Module {{ i }}</h4>
                 <div class="module-value" id="module-{{ i }}">—</div>

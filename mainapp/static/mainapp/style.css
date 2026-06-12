@@ -7,8 +7,33 @@
     --box-border: #9fd8ff; /* light blue border */
     --muted: #bfa6d9;
     --text: var(--text-purple);
-    --module-bg-light: #fff0f6; /* light pink for module bg */
-    --module-border: #ff8ab2; /* module border pink */
+    --module-bg-light: #fff6fb; /* lighter pink for module bg */
+    --module-border: #ff5a8e; /* deeper pink for module border */
+    --module-border-deep: #ff3f76; /* even deeper pink if needed */
+}
+
+/* Local webfont: JF Open 粉圓
+   Place webfont files in: static/mainapp/fonts/
+   Expected filenames: JFOpen-Pink.woff2, JFOpen-Pink.woff (you can rename accordingly)
+*/
+@font-face {
+    font-family: 'JF Open 粉圓';
+    src: url('/static/mainapp/fonts/JFOpen-Pink.woff2') format('woff2'),
+         url('/static/mainapp/fonts/JFOpen-Pink.woff') format('woff');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Cubic-11 pixel font (copied from GitHub cubic-11 release) */
+@font-face {
+    font-family: 'Cubic11';
+    src: url('/static/mainapp/fonts/Cubic11.woff2') format('woff2'),
+         url('/static/mainapp/fonts/Cubic11.woff') format('woff'),
+         url('/static/mainapp/fonts/Cubic11.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 body {
@@ -18,7 +43,7 @@ body {
     align-items: center;
     justify-content: center;
     background: #000000; /* keep background black */
-    font-family: 'Ma Shan Zheng', 'Dancing Script', 'Inter', 'Noto Sans TC', Arial, sans-serif;
+    font-family: 'Cubic11', 'JF Open 粉圓', 'Ma Shan Zheng', 'Dancing Script', 'Inter', 'Noto Sans TC', Arial, sans-serif;
     color: var(--text);
 }
 
@@ -44,7 +69,7 @@ body {
     font-size: 2.4rem;
     letter-spacing: 0.02em;
     font-weight: 700;
-    font-family: 'Noto Serif TC', serif;
+    font-family: 'Cubic11', Arial, sans-serif;
     color: var(--text-purple);
 }
 
@@ -107,16 +132,31 @@ body {
 }
 
 .box {
-    background: #072a47; /* dark blue box */
+    background: #072a47; /* dark blue box (generic) */
     border-radius: 8px;
     padding: 14px;
     border: 1px solid #9fd8ff; /* light blue border */
 }
 
+/* Module-specific styling overrides */
+.module-box.box {
+    background: var(--module-bg-light);
+    border: 1px solid var(--module-border);
+    color: var(--text-pink);
+}
+
 .link-box { grid-column: 1 / -1; }
 
 .module-box h4 { margin: 0 0 6px; font-size: 1rem; color: var(--text-pink); }
-.module-value { font-weight: 700; font-size: 1.05rem; color: var(--text-blue); }
+.module-value {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-pink);
+    background: var(--module-bg-light);
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
 
 /* Top actions: left and right buttons */
 .top-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:10px; width:100%; }
@@ -136,7 +176,7 @@ body {
     font-weight: 700;
     box-shadow: 0 6px 0 rgba(0,0,0,0.25);
     border: 1px solid rgba(255,255,255,0.04);
-    font-family: 'Dancing Script', inherit;
+    font-family: 'Cubic11', inherit;
 }
 .link-button:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,0.25); }
 
@@ -154,7 +194,7 @@ body {
     border: 1px solid rgba(255,255,255,0.04);
     text-decoration:none;
     font-weight:700;
-    font-family: 'Dancing Script', inherit;
+    font-family: 'Cubic11', inherit;
 }
 .all-modules-button:hover { background: #aee8ff; }
 
@@ -170,7 +210,7 @@ body {
     margin: 0 0 8px;
     font-size: 1.1rem;
     color: var(--text-blue);
-    font-family: 'Noto Serif TC', serif;
+    font-family: 'Cubic11', Arial, sans-serif;
 }
 
 .detail-item p {
