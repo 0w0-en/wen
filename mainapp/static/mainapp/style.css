@@ -116,7 +116,7 @@ body {
 }
 .site-header .title { margin: 0; }
 .site-header-center { flex: 0 1 60%; text-align: center; margin: 0 6px; }
-.card { margin-top: 92px; }
+.card { margin-top: 140px; }
 
 .card-top { padding-bottom: 8px; display:flex; justify-content:space-between; align-items:center; }
 
@@ -129,7 +129,7 @@ body {
 .modules-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
 .box {
@@ -146,25 +146,26 @@ body {
     color: var(--text-pink);
     position: relative;
     overflow: hidden;
-    padding: 22px; /* larger padding */
-    min-height: 140px; /* taller blocks */
+    padding: 28px; /* larger padding */
+    min-height: 280px; /* doubled height */
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* vertical center */
+    justify-content: flex-start; /* align to top */
+    align-items: flex-start; /* align to left */
 }
 
 .link-box { grid-column: 1 / -1; }
 
-.module-box h4 { margin: 0 0 10px; font-size: 1.25rem; color: var(--text-pink); font-weight: 800; }
+.module-box h4 { margin: 0 0 8px; font-size: 1.4rem; color: var(--text-pink); font-weight: 900; align-self: flex-start; }
 .module-value {
-    font-weight: 800;
-    font-size: 1.25rem;
+    font-weight: 900;
+    font-size: 1.4rem;
     color: var(--text-pink);
-    background: var(--module-bg-light);
-    padding: 8px 12px;
+    background: transparent; /* keep background consistent */
+    padding: 6px 0;
     border-radius: 6px;
-    display: inline-block;
+    display: block;
 }
 
 /* Decorative white overlay at the bottom of module boxes (30% opacity) */
