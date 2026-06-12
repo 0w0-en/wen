@@ -7,21 +7,13 @@
 
 <div class="card">
     <header class="center-header">
-        <h1 class="title">實境解謎裝置</h1>
+        <h1 class="title">實境解謎裝置 — All Modules</h1>
         <div class="header-meta">Group 6 &nbsp;•&nbsp; 趙翌雯 &nbsp;•&nbsp; B11313121</div>
     </header>
 
-    <main class="modules-grid">
-        <section class="link-box box">
-            <div class="links-row">
-                <a class="link-button" href="https://carpool-diffusion-letdown.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">組別網站</a>
-                <a class="all-modules-button" href="{% url 'full_modules' %}">All Modules</a>
-            </div>
-        </section>
-
-        <div class="modules-container">
-            <!-- Show only 3 modules (prev/current/next) by default -->
-            {% for i in modules|slice:":3" %}
+    <main class="modules-grid full">
+        <div class="modules-container full-grid">
+            {% for i in modules %}
             <div class="module-box box" data-module="{{ i }}">
                 <h4>Module {{ i }}</h4>
                 <div class="module-value" id="module-{{ i }}">—</div>
@@ -31,10 +23,7 @@
     </main>
 
     <script>
-    // PHP endpoint (optional) injected from Django settings; if empty, use internal API
     const PHP_ENDPOINT = '{{ php_endpoint }}';
-
-    // Polling function to fetch module statuses (from PHP endpoint if provided)
     async function fetchModuleStatus(){
         try{
             const url = PHP_ENDPOINT && PHP_ENDPOINT.trim() !== '' ? PHP_ENDPOINT : '{% url "module_status" %}';
@@ -48,8 +37,6 @@
             });
         }catch(e){ console.error('module poll error', e); }
     }
-
-    // start polling every 2 seconds
     setInterval(fetchModuleStatus, 2000);
     fetchModuleStatus();
     </script>

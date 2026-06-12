@@ -19,3 +19,9 @@ def module_status(request):
     for i in range(1, 10):
         modules.append({'id': i, 'value': '' , 'ts': ts})
     return JsonResponse({'modules': modules})
+
+
+def full_modules(request):
+    modules = list(range(1, 10))
+    php_endpoint = getattr(settings, 'PHP_MODULE_STATUS_URL', '')
+    return render(request, 'mainapp/full_modules.html', {'modules': modules, 'php_endpoint': php_endpoint})

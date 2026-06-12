@@ -6,6 +6,7 @@
     --text-blue: #67aef4;
     --box-border: #ffd166; /* yellow for box borders */
     --muted: #bfa6d9;
+    --text: var(--text-purple);
 }
 
 body {
@@ -14,8 +15,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--bg);
-    font-family: 'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
+    background: #02061a; /* deep page background (very dark blue) */
+    font-family: 'Noto Sans TC', 'Inter', Arial, sans-serif;
     color: var(--text);
 }
 
@@ -64,6 +65,13 @@ body {
     margin-bottom: 18px;
 }
 
+.header-meta {
+    color: var(--text-pink);
+    font-size: 1.2rem;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
 .modules-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -77,10 +85,10 @@ body {
 }
 
 .box {
-    background: #0b0b0b;
-    border-radius: 6px;
-    padding: 12px;
-    border: 2px solid var(--box-border);
+    background: linear-gradient(180deg, rgba(6,28,66,0.95), rgba(2,18,46,0.95));
+    border-radius: 8px;
+    padding: 14px;
+    border: 1px solid rgba(100,150,255,0.08);
 }
 
 .link-box { grid-column: 1 / -1; }
@@ -88,18 +96,33 @@ body {
 .module-box h4 { margin: 0 0 6px; font-size: 1rem; color: var(--text-pink); }
 .module-value { font-weight: 700; font-size: 1.05rem; color: var(--text-blue); }
 
-/* Link button styling */
+/* Links row */
+.links-row { display:flex; gap:12px; align-items:center; }
+
 .link-button {
     display: inline-block;
-    padding: 10px 14px;
-    background: linear-gradient(90deg, var(--text-purple), var(--text-pink));
+    padding: 8px 12px;
+    background: #05294a; /* deep blue button */
     color: white;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 600;
-    border: 2px solid var(--box-border);
+    box-shadow: 0 6px 0 rgba(2,10,30,0.55), 0 8px 18px rgba(2,6,26,0.6);
+    border: 1px solid rgba(255,255,255,0.04);
 }
-.link-button:hover { filter: brightness(0.95); }
+.link-button:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(2,10,30,0.55); }
+
+.all-modules-button {
+    display:inline-block;
+    padding:8px 12px;
+    background: transparent;
+    color: var(--text-blue);
+    border-radius:6px;
+    border: 1px solid rgba(255,255,255,0.04);
+    text-decoration:none;
+    font-weight:600;
+}
+.all-modules-button:hover { background: rgba(255,255,255,0.02); }
 
 .detail-item {
     background: #0b0b0b;

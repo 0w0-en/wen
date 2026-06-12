@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('api/module_status/', views.module_status, name='module_status'),
+    path('modules/', views.full_modules, name='full_modules'),
 ]
