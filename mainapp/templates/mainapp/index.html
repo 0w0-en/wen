@@ -6,29 +6,49 @@
 <link rel="stylesheet" href="{% static 'mainapp/style.css' %}">
 
 <div class="card">
-    <div class="header">
-            <h1 class="title">實境解謎裝置</h1>
-            <div class="subtitle meta">B11313121 趙翌雯 • 最終提案</div>
+    <header class="center-header">
+        <h1 class="title">實境解謎裝置</h1>
+        <div class="subtitle meta">Group 6</div>
+        <div class="subtitle meta">趙翌雯</div>
+        <div class="subtitle meta">B11313121</div>
+    </header>
+
+    <main class="modules-grid">
+        <section class="link-box box">
+            <h3>Links</h3>
+            <div id="links-area">
+                <!-- Clickable links will be added here later -->
+                <p class="meta">連結會在此處顯示（稍後提供）</p>
+            </div>
+        </section>
+
+        <div class="modules-container">
+            <!-- Generate 9 module boxes -->
+            {% for i in modules %}
+            <div class="module-box box" data-module="{{ i }}">
+                <h4>Module {{ i }}</h4>
+                <div class="module-value" id="module-{{ i }}">—</div>
+            </div>
+            {% endfor %}
         </div>
-
-    <main class="content-grid">
-        <article>
-            <section class="detail-item">
-                <h2>提案摘要</h2>
-                <p>此頁面會顯示提案重點：目標、系統架構、感測器說明、資料流程與結論。</p>
-            </section>
-
-            <section class="detail-item">
-                <h2>文件大綱</h2>
-                <p class="meta">尚無可顯示的大綱</p>
-            </section>
-
-            <section class="detail-item">
-                <h2>閱讀建議</h2>
-                <p class="meta">若要完整呈現原始排版，建議下載原始文件或另行檢視。</p>
-            </section>
-        </article>
-
-        <!-- PDF viewer removed -->
     </main>
+
+    <script>
+    // Polling function to fetch module statuses
+    async function fetchModuleStatus(){
+        try{
+            const res = await fetch('{% url "module_status" %}');
+            if(!res.ok) return;
+            const data = await res.json();
+            if(!Array.isArray(data.modules)) return;
+            data.modules.forEach(m => {
+                const el = document.getElementById('module-' + m.id);
+                if(el) el.textContent = m.value ?? '—';
+            });
+        }catch(e){ console.error('module poll error', e); }
+    }
+    // start polling every 2 seconds
+    setInterval(fetchModuleStatus, 2000);
+    fetchModuleStatus();
+    </script>
 </div>
