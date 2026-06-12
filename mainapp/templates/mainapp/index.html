@@ -2,18 +2,22 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'mainapp/style.css' %}">
 
+<!-- Site header moved to top -->
+<div class="site-header">
+    <h1 class="title">實境解謎裝置</h1>
+    <div class="header-meta">Group 6 &nbsp;•&nbsp; 趙翌雯 &nbsp;•&nbsp; B11313121</div>
+</div>
+
 <div class="card">
-    <header class="center-header">
-        <h1 class="title">實境解謎裝置</h1>
-        <div class="header-meta">Group 6 &nbsp;•&nbsp; 趙翌雯 &nbsp;•&nbsp; B11313121</div>
+    <div class="card-top">
         <div class="top-actions">
             <a class="link-button" href="https://carpool-diffusion-letdown.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">組別網站</a>
             <a class="all-modules-button" href="{% url 'full_modules' %}">模組</a>
         </div>
-    </header>
+    </div>
 
     <main class="modules-grid">
         <div class="modules-container">

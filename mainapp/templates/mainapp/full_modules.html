@@ -2,16 +2,21 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'mainapp/style.css' %}">
 
 <div class="card">
-    <header class="center-header">
-        <h1 class="title">模組</h1>
+<!-- Site header moved to top -->
+<div class="site-header">
+    <h1 class="title">模組</h1>
+</div>
+
+<div class="card">
+    <div class="card-top">
         <div class="top-actions">
             <a class="all-modules-button" href="{% url 'home' %}">回主畫面</a>
         </div>
-    </header>
+    </div>
 
     <main class="modules-grid full">
         <div class="modules-container full-grid">
